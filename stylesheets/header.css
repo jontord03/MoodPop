@@ -1,0 +1,27 @@
+/* GENERAL STYLES */
+
+html, body {
+    margin: 0; 
+    font-family: monospace; 
+}
+
+select {
+    font-family: monospace; 
+}
+
+button {
+    font-family: monospace; 
+}
+
+h1 {
+    color: white; 
+    position: absolute; 
+}
+
+/* PARALLAX */
+
+.parallax-background {
+    height: calc(15rem + 15vw); 
+    background-color: black; 
+    background-image: url("#"); 
+} 

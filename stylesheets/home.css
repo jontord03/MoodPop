@@ -1,0 +1,15 @@
+/* LAYOUT */
+
+.wrapper {
+    display: flex; 
+    flex-wrap: wrap; 
+}
+
+.question-elem {
+    flex: 50%; 
+}
+
+.answer-elem {
+    flex: 50%; 
+    text-align: center; 
+}
