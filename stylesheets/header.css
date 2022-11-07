@@ -1,8 +1,10 @@
 /* GENERAL STYLES */
 
-html, body {
+html, body, header, main, article {
     margin: 0; 
-    font-family: monospace; 
+    padding: 0; 
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif; 
+    letter-spacing: 1px;
 }
 
 select {
@@ -16,12 +18,20 @@ button {
 h1 {
     color: white; 
     position: absolute; 
+    left: calc(1.5rem + 1.5vw); 
+    font-size: calc(3.5rem + 3.5vw); 
+    font-family: monospace; 
 }
 
 /* PARALLAX */
 
 .parallax-background {
     height: calc(15rem + 15vw); 
-    background-color: black; 
-    background-image: url("#"); 
+    background:
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 1)), 
+    url("images/albums.png"); 
+    background-attachment: fixed; 
+    background-position: top; 
+    /* background-size: cover;  */
 } 
+

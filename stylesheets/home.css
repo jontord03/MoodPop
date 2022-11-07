@@ -1,15 +1,99 @@
+/* GENERAL ELEMENTS */
+
+article {
+    margin-top: 0; 
+    text-align: center; 
+    padding: calc(1rem + 1vw); 
+    background-color: teal; 
+}
+
+h3 {
+    color: white; 
+    font-size: calc(1rem + 1vw); 
+}
+
+h4 {
+    color: honeydew; 
+    font-size: calc(0.9rem + 0.9vw); 
+}
+
+footer {
+    margin-bottom: calc(2rem + 2vw); 
+    background-color: darkcyan; 
+    padding-bottom: calc(4rem + 4vw); 
+    margin-bottom: 0; 
+}
+
 /* LAYOUT */
 
 .wrapper {
-    display: flex; 
+    display: inline-flex; 
     flex-wrap: wrap; 
+    background-color: lightseagreen; 
 }
 
 .question-elem {
-    flex: 50%; 
+    flex: 45%; 
+    margin: 2.5%; 
+    text-align: center; 
 }
 
 .answer-elem {
-    flex: 50%; 
+    flex: 45%; 
+    margin: 2.5%;
     text-align: center; 
+}
+
+.center {
+    text-align: center; 
+}
+
+/* SELECT */
+
+select {
+    width: calc(10rem + 15vw); 
+    height: calc(2rem + 2vw); 
+    font-size: calc(0.7rem + 0.7vw); 
+    border: none; 
+}
+
+button {
+    margin-top: calc(1rem + 1vw); 
+    padding: calc(0.6rem + 0.6vw);
+    font-size: calc(1rem + 1vw);  
+    border: none; 
+}
+
+/* SPINNER */
+
+/* styling spinner */
+.spinner {
+    display: inline-block; 
+    margin-top: calc(1rem + 1vw); 
+    color: white; 
+    border-radius: 50%; 
+    border: calc(1rem + 1vw) solid teal; 
+    border-top: calc(1rem + 1vw) solid mediumaquamarine; 
+    background-color: darkcyan;
+    height: calc(2rem + 2vw); 
+    width: calc(2rem + 2vw);
+}
+
+/* defines animation property */
+.spin {
+    /* refer to spinner media query */
+    /* lasts for 1.5s */
+    /* linear progression */
+    /* continues forever */
+    animation: spinner 1.5s linear infinite; 
+}
+
+@keyframes spinner {
+    0% {
+        transform: rotate(0deg); 
+    }
+
+    100% {
+        transform: rotate(360deg); 
+    }
 }

@@ -11,7 +11,7 @@
         <link rel="stylesheet" href="stylesheets/home.css" type="text/css">
         <title>MoodPop</title>
     </head>
-    <body>
+    <body onload="hideLoader()">
         <header>
             <h1>MoodPop</h1>
             <div class="parallax-background">
@@ -19,45 +19,152 @@
         </header>
         <main>
             <article>
-                <h3>Answer these questions to receive your
-                    music suggestion: 
+                <h3>
+                    MoodPop calculates the perfect song for you:   
+                </h3>
+                <h4>
+                    right here, 
+                </h4>
+                <h4>
+                    right now. 
+                </h4>
+                <h3>
+                    Answer the following questions to receive your 
+                    music recommendation:    
                 </h3>
             </article>
             <div class="wrapper">
-                <div class="question-elem">
-                    <p1>Is this a sample question?</p1>
+                <div id="question-1" class="question-elem">
+                    <p1>When you first woke up this morning, how did you feel?</p1>
                 </div>
                 <div class="answer-elem">
-                    <select>
-                        <option value="one">One</option>
-                        <option value="two">Two</option>
-                        <option value="three">Three</option>
+                    <select id="answer-1">
+                        <option value="">--choose--</option>
+                        <option value="great">Excited for everything I'm going to do today!</option>
+                        <option value="good">I was so happy because I had a wonderful dream</option>
+                        <option value="fair">I wished I could've stayed in bed all day</option>
+                        <option value="poor">I wanted to scream into my pillow</option>
+                        <option value="horrible">Very sad, I woke up in a pillow of my tears</option>
                     </select>
                 </div>
-                <div class="question-elem">
-                    <p1>Is this a sample question?</p1>
+                <div id="question-2" class="question-elem">
+                    <p1>How do you feel right now?</p1>
                 </div>
                 <div class="answer-elem">
-                    <select>
-                        <option value="one">One</option>
-                        <option value="two">Two</option>
-                        <option value="three">Three</option>
+                    <select id="answer-2">
+                        <option value="">--choose--</option>
+                        <option value="great">Couldn't be better!</option>
+                        <option value="good">Really productive! I'm on fire</option>
+                        <option value="fair">I'm okay</option>
+                        <option value="poor">I feel so lazy, I don't want to move</option>
+                        <option value="horrible">Worse than ever</option>
                     </select>
                 </div>
-                <div class="question-elem">
-                    <p1>Is this a sample question?</p1>
+                <div id="question-3" class="question-elem">
+                    <p1>If you could do anything right now, what would you do?</p1>
                 </div>
                 <div class="answer-elem">
-                    <select>
-                        <option value="one">One</option>
-                        <option value="two">Two</option>
-                        <option value="three">Three</option>
+                    <select id="answer-3">
+                        <option value="">--choose--</option>
+                        <option value="great">Spend time with my significant other!</option>
+                        <option value="good">Go on an adventure (whatever that means to you)</option>
+                        <option value="fair">All the work I've been putting off</option>
+                        <option value="poor">Chill at home </option>
+                        <option value="horrible">Nothing. I want to stay in bed all day.</option>
+                    </select>
+                </div>
+                <div id="question-4" class="question-elem">
+                    <p1>What's your favorite hobby (right now)?</p1>
+                </div>
+                <div class="answer-elem">
+                    <select id="answer-4">
+                        <option value="">--choose--</option>
+                        <option value="great">Meeting new people!</option>
+                        <option value="good">Hanging out with friends.</option>
+                        <option value="fair">Homework</option>
+                        <option value="poor">Watching YouTube</option>
+                        <option value="horrible">Sleeping</option>
+                    </select>
+                </div>
+                <div id="question-5" class="question-elem">
+                    <p1>Suppose it's a rainy day. What would you do?</p1>
+                </div>
+                <div class="answer-elem">
+                    <select id="answer-5">
+                        <option value="">--choose--</option>
+                        <option value="great">Go on a walk with my favorite person</option>
+                        <option value="good">Go outside and dance!</option>
+                        <option value="fair">Work on a creative activity</option>
+                        <option value="poor">Stay inside and watch Netflix</option>
+                        <option value="horrible">Stand outside, unable to tell the different between your tears and the rain</option>
+                    </select>
+                </div>
+                <div id="question-6" class="question-elem">
+                    <p1>What is your gender?</p1>
+                </div>
+                <div class="answer-elem">
+                    <select id="gender">
+                        <option value="">--choose--</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div id="question-7" class="question-elem">
+                    <p1>What is your age?</p1>
+                </div>
+                <div class="answer-elem">
+                    <select id="age">
+                        <option value="">--choose--</option>
+                        <option value="0">0-12</option>
+                        <option value="13">13-19</option>
+                        <option value="20">20-36</option>
+                        <option value="37">37-48</option>
+                        <option value="49">49-64</option>
+                        <option value="65">65+</option>
+                    </select>
+                </div>
+                <div id="question-8" class="question-elem">
+                    <p1>What's your favorite genre?</p1>
+                </div>
+                <div class="answer-elem">
+                    <select id="genre">
+                        <option value="">--choose--</option>
+                        <option value="hiphop">Hip Hop</option>
+                        <option value="r&b">R&B</option>
+                        <option value="indie">Indie</option>
+                        <option value="altrock">Alternative Rock</option>
+                        <option value="funk">Funk</option>
+                        <option value="poprock">Pop Rock</option>
+                        <option value="country">Country</option>
+                        <option value="dancepop">Dance Pop</option>
+                    </select>
+                </div>
+                <div id="question-9" class="question-elem">
+                    <p1>What's your opinion on explicit music?</p1>
+                </div>
+                <div class="answer-elem">
+                    <select id="explicit">
+                        <option value="">--choose--</option>
+                        <option value="great">Can't get enough of it</option>
+                        <option value="good">I occasionally enjoy listening to it</option>
+                        <option value="fair">No opinion</option>
+                        <option value="poor">I don't usually enjoy listening to it</option>
+                        <option value="horrible">I hate it</option>
                     </select>
                 </div>
             </div>
         </main>
-        <footer>
-            <button class="submit">Submit Results</button>
+        <footer class="center">
+            <button onclick="refreshOnClick()" class="submit">Submit Results</button>
+            <br>
+            <div class="spinner"></div>
+            <div class="result">
+                <h2 id="song-parent">Your Song:</h1>
+                <p1 id="final-message">Come back tomorrow!</p1>
+            </div>
         </footer>
+        <script src="scripts/json-database/songs.js"></script>
+        <script src="scripts/main-alt.js"defer></script>
     </body>
 </html>
