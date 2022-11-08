@@ -7,6 +7,11 @@ const finalHead = document.querySelector("#song-parent");
 const finalPara = document.querySelector("#final-message");
 finalHead.style.opacity = 0; 
 finalPara.style.opacity = 0; 
+
+const paraResult = document.createElement("p"); 
+paraResult.style.fontSize = "calc(2rem + 2vw)";            
+finalHead.appendChild(paraResult); 
+paraResult.style.opacity = 0; 
 // initially hide spinner on load
 const hideLoader = () => {
     spinner.style.opacity = 0; 
@@ -36,16 +41,16 @@ const processData = () => {
     for (option in select) {
         switch(select[option].value) {
             case "great": 
-                user.mood += 10; 
+                user.mood += 20; 
                 break; 
             case "good": 
-                user.mood += 5; 
+                user.mood += 10; 
                 break; 
             case "poor": 
-                user.mood -= 5; 
+                user.mood -= 10; 
                 break; 
             case "horrible": 
-                user.mood -= 10; 
+                user.mood -= 20; 
                 break; 
             default: 
                 break; 
@@ -228,7 +233,7 @@ const rankSong = () => {
                     for (objectIndex in songObjects) {
                         let songObjectName = songObjects[objectIndex].name; 
                         if (songObjectName == streamSongName) {
-                            songObjects[objectIndex].score += 10; 
+                            songObjects[objectIndex].score += 20; 
                         }
                     }
                 }
@@ -290,7 +295,7 @@ const rankSong = () => {
                     for (objectIndex in songObjects) {
                         let songObjectName = songObjects[objectIndex].name;  
                         if (songObjectName == streamSongName) {
-                            songObjects[objectIndex].score += 10; 
+                            songObjects[objectIndex].score += 20; 
                         }
                     }
                 }
@@ -340,7 +345,7 @@ const rankSong = () => {
                     if (streamName == songName) {
                         objectIndex = song; 
                         if (fullStream[objectIndex].retro == "yes") {
-                            songObjects[item].score += 15; 
+                            songObjects[item].score += 20; 
                         }
                     }
                 }
@@ -356,7 +361,7 @@ const rankSong = () => {
                     if (streamName == songName) {
                         objectIndex = song; 
                         if (fullStream[objectIndex].retro == "yes") {
-                            songObjects[item].score += 20; 
+                            songObjects[item].score += 30; 
                         }
                     }
                 }
@@ -380,14 +385,30 @@ const rankSong = () => {
     // get index of songObjects.name in fullStream --> finalIndex
 
     let songScores = []; 
+    console.log(songScores); 
     for (song in songObjects) {
         let objectScore = songObjects[song].score; 
         songScores.push(objectScore); 
     }
     // chooses the first instance with the highest scores --> therefore highest as possible on charts
     // FUTURE: could randomly choose between the highest scores by splicing the array
-    let indexOfMax = songScores.indexOf(Math.max(...songScores)); 
-    let bestSongName = songObjects[indexOfMax].name;
+    
+    // let indexOfMax = songScores.indexOf(Math.max(...songScores)); 
+
+    const getHighestScores = (scoreList) => {
+        let highestScoresList = []; 
+        for (elemIndex in scoreList) {
+            let highestScore = Math.max(...scoreList); 
+            if (scoreList[elemIndex] == highestScore) {
+                highestScoresList.push(elemIndex); 
+            }
+        }
+        let randSongInd = highestScoresList[Math.floor(Math.random() * highestScoresList.length)]; 
+        return randSongInd; 
+    }
+    console.log(getHighestScores); 
+
+    let bestSongName = songObjects[getHighestScores(songScores)].name;
     for (streamIndex in fullStream) { 
         if (fullStream[streamIndex].title == bestSongName) {
             finalIndex = Number(streamIndex); 
@@ -426,13 +447,13 @@ const refreshOnClick = () => {
     // promise resolve --> display song
     retrieveData(rankSong())
         .then((songAttributes) => {
-            spinner.classList.remove('spin');
+            spinner.classList.remove("spin");
+            paraResult.innerText = ""; 
             finalHead.style.opacity = 1; 
             finalPara.style.opacity = 1; 
-            const paraResult = document.createElement("p"); 
-            paraResult.style.fontSize = "calc(2rem + 2vw)"; 
-            songParent.appendChild(paraResult); 
             paraResult.innerText = `${songAttributes[0]} by ${songAttributes[1]}`; 
+            paraResult.style.opacity = 1; 
+            songIndices = []; 
         })
         .catch((error) => {
             console.log(`${error}`); 
